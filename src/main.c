@@ -23,14 +23,16 @@ int main(int argc, char* argv[])
 
 void welcome() {
     printf("Gobby Interpreter v0.1\n");
+    printf("The programming language of the future by gatsan\n");
 }
 
 void read_stdin() {
     char line[128];
     welcome();
     printf(">>> ");
+    ParserState state = {true, 0, 0, 0, MODE_INTEGER};
     while (fgets(line, 128, stdin)) {
-        parse(line);
+        parse(line, &state);
         printf(">>> ");
     }
 }

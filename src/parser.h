@@ -3,10 +3,22 @@
 
 #include <stdbool.h>
 
-struct ParserState {
-    bool exec;
+enum PrintMode {
+    MODE_ASCII, MODE_INTEGER
 };
 
-void parse(char* line);
+typedef enum PrintMode PrintMode;
+
+struct ParserState {
+    bool exec;
+    char a;
+    char x;
+    char y;
+    PrintMode printmode;
+};
+
+typedef struct ParserState ParserState;
+
+void parse(char* line, ParserState* state);
 
 #endif
