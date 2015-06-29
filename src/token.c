@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 TokenList* TokenList_New()
 {
@@ -17,6 +18,7 @@ void TokenList_Destroy(TokenList* list)
     for (size_t i = 0; i < list->size; i++) {
         free(list->tokens[i]);
     }
+    free(list->tokens);
     free(list);
 }
 
