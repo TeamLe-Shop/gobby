@@ -3,11 +3,18 @@
 #include <string.h>
 #include <ctype.h>
 #include <stddef.h>
+#include <stdio.h>
 
-void trimleading(char** str) {
+void trim(char** str) {
+    char* new_end;
     while (isspace(**str)) {
         (*str)++;
     }
+    new_end = *str + strlen(*str);
+    while (isspace(*(new_end - 1))) {
+        new_end--;
+    }
+    *new_end = '\0';
 }
 
 bool starts(char* str, char* str2) {
@@ -25,12 +32,13 @@ void split(char*** result, size_t* token_count, char* str, char delimiter) {
         temp++;
         ptrdiff_t diff = temp - start;
         if (*temp == delimiter) {
-            *result = realloc(*result, sizeof(char*) * (*token_count + 1));
-            *result[*token_count] = strndup(start, diff);
+            *result = realloc((*result), sizeof(char*) * (*token_count + 1));
+            (*result)[*token_count] = strndup(start, diff);
             start = temp + 1;
             (*token_count)++;
         } else if (*temp == '\0') {
-            *result[*token_count] = strndup(start, diff);
+            *result = realloc((*result), sizeof(char*) * (*token_count + 1));
+            (*result)[*token_count] = strndup(start, diff);
             (*token_count)++;
             return;
         }

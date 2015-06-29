@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include <stdlib.h>
+
 #include "parser.h"
 
 void read_stdin();
@@ -33,4 +35,5 @@ void read_stdin() {
         parse(line);
         printf(">>> ");
     }
+    free(line);
 }

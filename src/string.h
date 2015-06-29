@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 /* Trim leading and trailing whitespace of a string. */
-void trimleading(char** string);
+void trim(char** string);
 
 /* Return if `str` starts with `str2`. */
 bool starts(char* str, char* str2);

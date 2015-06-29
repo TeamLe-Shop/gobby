@@ -5,7 +5,7 @@
 #include "string.h"
 
 void parse(char* line) {
-    trimleading(&line);
+    trim(&line);
 
     char** tokens = NULL;
     size_t token_count = 0;
