@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
         read_stdin();
     } else {
         // TODO: Implement reading from files.
-        printf("Reading input files not implemented!");
+        printf("Reading input files not implemented!\n");
     }
     return 0;
 }
