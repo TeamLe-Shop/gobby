@@ -26,15 +26,11 @@ void welcome() {
 }
 
 void read_stdin() {
-    char* line = NULL;
-    size_t linecap = 0;
-    ssize_t length;
+    char line[128];
     welcome();
     printf(">>> ");
-    while ((length = getline(&line, &linecap, stdin))) {
+    while (fgets(line, 128, stdin)) {
         parse(line);
         printf(">>> ");
-        free(line);
-        line = NULL;
     }
 }
