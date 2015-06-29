@@ -25,7 +25,7 @@ void split(char*** result, size_t* token_count, char* str, char delimiter) {
         temp++;
         ptrdiff_t diff = temp - start;
         if (*temp == delimiter) {
-            *result = realloc(*result, sizeof(char*) * *token_count + 1);
+            *result = realloc(*result, sizeof(char*) * (*token_count + 1));
             *result[*token_count] = strndup(start, diff);
             start = temp + 1;
             (*token_count)++;
