@@ -27,13 +27,14 @@ void welcome() {
 
 void read_stdin() {
     char* line = NULL;
-    size_t linecap;
+    size_t linecap = 0;
     ssize_t length;
     welcome();
     printf(">>> ");
     while ((length = getline(&line, &linecap, stdin))) {
         parse(line);
         printf(">>> ");
+        free(line);
+        line = NULL;
     }
-    free(line);
 }
