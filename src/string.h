@@ -14,7 +14,7 @@ bool starts(char* str, char* str2);
  *
  * Immediately returns with `token_count` if `str` is empty.
  */
-void split(char** result, size_t* token_count, char* str, char delimiter);
+void split(char*** result, size_t* token_count, char* str, char delimiter);
 
 /* Frees `tokens` and all of its tokens assuming it was created by
  * split() or other 'token-list' producing functions.
